@@ -1,0 +1,15 @@
+// Global variables for the site
+$mask-opacity: 0.4;
+$homepage-max-width: 64rem; // 1024px
+$font-size-base: 1rem;
+$font-size-sm: 0.875rem;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+
+$color-white: #ffffff;
+$color-black: #000000;
+$overlay-color: rgba(0, 0, 0, $mask-opacity);
+
+// Theme primary color
+$color-primary: #7c3aed; // deep purple

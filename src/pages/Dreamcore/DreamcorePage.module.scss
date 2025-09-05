@@ -1,0 +1,123 @@
+@use '../../styles/_index.scss' as *;
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  font-family: 'New Tegomin', 'New Tegomin Local', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 1rem;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  z-index: 12;
+}
+.title {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.lead {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.gridGallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.75rem; /* increased spacing between cards */
+}
+@media (min-width: 640px) {
+  .gridGallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .gridGallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.cardGroup {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.cardContent {
+  padding: 1.25rem; /* wider inner spacing for card content */
+}
+.cardGroup {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.cardContent {
+  padding: 1.25rem; /* wider inner spacing for card content */
+}
+.imgWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.imgCover {
+  width: 100%;
+  height: auto; /* preserve original aspect ratio */
+  object-fit: contain;
+  display: block;
+}
+.gradientOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+}
+.caption {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.captionTitle {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+/* two-line caption text under each title */
+.captionText {
+  margin: 0.25rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.25rem;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* About section below gallery */
+.aboutSection {
+  margin-top: 3.5rem; /* space between gallery and about card */
+  text-align: center;
+}
+.aboutCard {
+  max-width: 1120px; /* match container max width */
+  width: 100%;
+  margin: 0 auto;
+  /* opaque light purple background for better contrast */
+  background: rgba(95, 75, 153, 0.889); /* #7c3aed at 92% opacity */
+  border: 1px solid rgba(82, 36, 159, 0.18);
+}
+.aboutInner {
+  padding: 2rem; /* inner spacing between text and card frame */
+}
+.aboutHeading {
+  font-size: 1.75rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem; /* spacing between h2 and text */
+}
+.aboutContent {
+  max-width: 64rem;
+  margin: 0 auto;
+  color: #ffffff; /* ensure high contrast on purple bg */
+  line-height: 1.7;
+  display: grid;
+  gap: 1rem;
+}

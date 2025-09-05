@@ -1,0 +1,44 @@
+@forward './_variables.scss';
+@forward './_components.scss';
+
+// Centralized Sass entry. Use this file in top-level styles with `@use 'styles/index' as *;`
+
+/* Central font import for the site. Pages and components should inherit this for headings where desired. */
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+/* Local (self-hosted) fallback for environments without Google Fonts.
+	 Put optimized webfont files in `public/fonts/` with these example names:
+		 - NewTegomin-Regular.woff2
+		 - NewTegomin-Bold.woff2
+	 These entries are non-blocking; the Google-hosted font remains the preferred source.
+*/
+@font-face {
+	font-family: 'New Tegomin Local';
+	src: url('/fonts/NewTegomin-Regular.woff2') format('woff2'),
+			 url('/fonts/NewTegomin-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'New Tegomin Local';
+	src: url('/fonts/NewTegomin-Bold.woff2') format('woff2'),
+			 url('/fonts/NewTegomin-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Ensure page titles use the New Tegomin display font by default. Individual modules can override if needed. */
+.title,
+.pageTitle,
+h1, h2.pageTitle {
+	font-family: 'New Tegomin', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+// @media (max-width: 680px) {
+	.page-root {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+// }

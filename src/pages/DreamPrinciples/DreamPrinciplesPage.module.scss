@@ -1,0 +1,136 @@
+@use '../../styles/_index.scss' as *;
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 2.5rem;
+  padding-top: 1rem;
+}
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 12;
+}
+.title {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.lead {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+.principlesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .principlesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.cardFull {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.flexRow {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.icon {
+  font-size: 1.75rem;
+}
+.cardInner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.iconCol {
+  flex: 0 0 260px; /* match DreamMeanings base column for larger icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.textCol {
+  flex: 1 1 auto;
+}
+
+.iconImg {
+  /* base: slightly larger to match DreamMeanings */
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 1023px) {
+  .iconImg { width: 160px; height: 160px; }
+  .iconCol { flex: 0 0 180px; }
+}
+
+@media (max-width: 767px) {
+  /* mobile: image left, text right, left-aligned (match DreamMeanings) */
+  .cardInner {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 0.5rem 0;
+    gap: 0.75rem;
+  }
+  .iconImg { width: 160px; height: 160px; margin: 0; padding-top: 0; }
+  .iconCol { flex: 0 0 160px; padding: 0; }
+  .textCol { padding: 0 0.5rem; display: flex; flex-direction: column; align-items: flex-start; }
+  .cardFull { padding: 0.5rem; }
+}
+.iconImg {
+  /* slightly larger image while keeping column width the same */
+  width: 184px;
+  height: 184px;
+  max-width: 100%; /* don't overflow the column */
+  object-fit: contain;
+  display: block;
+}
+.cardTitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+.desc {
+  color: rgba(255, 255, 255, 0.8);
+}
+.details {
+  color: rgba(255, 255, 255, 0.6);
+}
+.stagesWrapper {
+  margin-top: 2rem;
+}
+.stagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .stagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .stagesGrid {
+    grid-template-columns: repeat(4, 1fr); /* show all 4 stages in one row on desktop */
+  }
+}
+.stage {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+.stageTitle {
+  font-weight: 600;
+}

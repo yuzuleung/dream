@@ -1,0 +1,119 @@
+@use '../styles/_index.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap');
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-family: 'New Tegomin', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  background-clip: padding-box;
+}
+
+.primary {
+  background: linear-gradient(90deg, #7c3aed, #2563eb);
+  color: $color-white;
+}
+
+.accent {
+  /* adjacent color gradient: red -> orange -> yellow, main color still orange */
+  background: linear-gradient(90deg, #f97316 0%, #fb923c 45%, #f59e0b 100%);
+  color: $color-white;
+  position: relative;
+  overflow: hidden;
+  /* subtle glossy highlight using a pseudo-element */
+}
+
+/* shimmer / pulse animation for dreamlike effect */
+/* glimmer animation: whole button (including text) subtly fades in/out and scales */
+@keyframes btn-glimmer {
+  0% { opacity: 0.72; transform: translateY(0) scale(1); filter: brightness(1); }
+  40% { opacity: 1; transform: translateY(-1px) scale(1.02); filter: brightness(1.06); }
+  70% { opacity: 0.82; transform: translateY(0) scale(1); filter: brightness(1); }
+  100% { opacity: 0.74; transform: translateY(0) scale(1); filter: brightness(1); }
+}
+
+.accent {
+  animation: btn-glimmer 2.6s ease-in-out infinite;
+}
+
+/* light streak shimmer */
+.accent::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 60%;
+  height: 160%;
+  transform: rotate(20deg) translateX(-100%);
+  background: linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0) 60%);
+  opacity: 0.0;
+  pointer-events: none;
+  transition: opacity 0.6s ease-in-out, transform 0.9s ease-in-out;
+}
+
+.accent:hover::after {
+  opacity: 0.9;
+  transform: rotate(20deg) translateX(20%);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .accent { animation: none !important; }
+  .accent::after { transition: none !important; opacity: 0.6; }
+}
+
+.destructive {
+  background: #d4183d;
+  color: $color-white;
+}
+.outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: $color-white;
+}
+.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: $color-white;
+}
+.ghost {
+  background: transparent;
+  color: $color-white;
+}
+.link {
+  background: transparent;
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+.sm {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+}
+.lg {
+  padding: 1rem 1.75rem;
+  font-size: 1.125rem;
+}
+.icon {
+  padding: 0.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* accessible focus ring but not black */
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18);
+}
+
+.btn:active,
+.btn:disabled {
+  border: none;
+  box-shadow: none;
+}

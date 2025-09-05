@@ -1,0 +1,22 @@
+@use '../styles/_index.scss' as *;
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: $color-white;
+}
+
+.cardHeader {
+  padding: 1rem 0.5rem 0;
+}
+.cardContent {
+  padding: 0.5rem;
+}
+
+@media (max-width: 767px) {
+  .cardHeader {
+    padding: 0; /* make card header padding 0 on small screens */
+  }
+}

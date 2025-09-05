@@ -1,0 +1,34 @@
+@use '../../styles/_index.scss' as *;
+
+.homepage-root {
+  position: relative;
+  min-height: 80vh;
+}
+.homepage-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.homepage-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+}
+.homepage-content {
+  position: relative;
+  padding: 6rem 1rem;
+}
+.homepage-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: $color-white;
+}
+.title {
+  font-size: 3rem;
+}
+.subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}

@@ -1,0 +1,109 @@
+@use '../styles/_index.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap');
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  /* use New Tegomin for navigation text */
+    font-family: 'New Tegomin', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navInner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.navBrand {
+  font-size: 1.25rem;
+  color: $color-white;
+}
+/* Ensure the brand link has no underline */
+.navBrand,
+.navBrand:link,
+.navBrand:visited {
+  text-decoration: none;
+}
+.navBrand:hover,
+.navBrand:focus {
+  text-decoration: none;
+}
+.navList {
+  display: flex;
+  gap: 1rem;
+}
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+}
+.navItemHover {
+  color: $color-white;
+  background: rgba(255, 255, 255, 0.03);
+}
+.navItemActive {
+  background: rgba(255, 255, 255, 0.12);
+  color: $color-white;
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.12);
+}
+
+/* Mobile / small screen layout: breakpoint 680px */
+@media (max-width: 680px) {
+  .navInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  .navBrand {
+    width: 100%;
+    text-align: center;
+    margin: 0.25rem 0;
+    font-size: 1.125rem;
+  }
+
+  /* keep nav items in a single row; allow them to shrink and reduce font-size to fit */
+  .navList {
+    display: flex;
+    width: 100%;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* prevent wrapping */
+    overflow: hidden;
+  }
+
+  .navItem {
+    flex: 1 1 0%; /* share available space, allow shrinking */
+    min-width: 0; /* allow shrink below content width */
+    justify-content: center;
+    padding: 0.45rem 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+    /* responsive font-size that will shrink on narrow screens */
+    font-size: clamp(0.7rem, 2.5vw, 0.95rem);
+  }
+
+  /* ensure active/hover styles still look good on small screens */
+  .navItemActive {
+    width: 100%;
+  }
+}

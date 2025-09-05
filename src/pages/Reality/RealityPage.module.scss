@@ -1,0 +1,85 @@
+@use '../../styles/_index.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Mai&display=swap');
+
+.realityRoot {
+  position: relative;
+  min-height: 91vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: $color-white;
+  z-index: 10;
+}
+.realityContent { 
+  max-width: $homepage-max-width;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  padding-top: 12vh;
+  text-align: center;
+  color: $color-white;
+}
+
+.btnCustom {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+.title { 
+  font-size: 3.5rem;
+  /* New Tegomin: decorative Japanese-capable display font */
+  font-family: 'New Tegomin', 'New Tegomin Local', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 4rem; 
+}
+
+@media (max-width: 767px) {
+  .titleBreak { display: block; }
+}
+
+/* For very narrow viewports (<445px) make the title shrink fluidly so the two spans fit into two lines.
+   We only change font-size under 445px; 445px and above keep the original 3.5rem. */
+@media (max-width: 444px) {
+  .title {
+    /* fluid scale: minimum 1.1rem, preferred scales with viewport, maximum capped below desktop size */
+    font-size: clamp(1.05rem, 10.5vw, 3.5rem);
+    line-height: 1.12;
+    margin-bottom: 2.25rem;
+  }
+  .titleBreak {
+    display: block;
+    /* allow normal wrapping between spans */
+    white-space: normal;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  font-family: 'New Tegomin', 'Yu Gothic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(255,255,255,0.9);
+}
+
+/* animated arrow after button text */
+.btnArrow {
+  display: inline-block;
+  margin-left: 0.6rem;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.95;
+  animation: arrow-wiggle 1.6s ease-in-out infinite;
+}
+
+@keyframes arrow-wiggle {
+  0% { transform: translateX(0) rotate(0deg); }
+  30% { transform: translateX(6px) rotate(8deg); }
+  60% { transform: translateX(-2px) rotate(-4deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+.btnCustom:hover .btnArrow,
+.btnCustom:focus .btnArrow {
+  transform: translateX(8px) rotate(6deg);
+  opacity: 1;
+  animation-play-state: paused; /* let hover override wiggle for direct movement */
+}

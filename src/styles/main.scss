@@ -1,0 +1,54 @@
+@use './_index.scss' as *;
+
+// Global base styles
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-family: 'New Tegomin', 'New Tegomin Local', 'Yu Gothic', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: var(--color-background);
+}
+
+/* Global fixed background image that covers the viewport and does not scroll */
+.global-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+.global-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: opacity;
+}
+
+
+// Page root helper
+// .page-root {
+//   min-height: 100vh;
+//   padding: 3rem 1rem;
+// }
+
+// utility
+.text-center {
+  text-align: center;
+}
+
+// main padding removed — footer is non-fixed and part of document flow
+/* add bottom padding to avoid fixed footer overlapping content */
+main {
+  /* reserve space for the fixed top navigation (64px) so page content sits below it */
+  padding-top: 64px;
+  padding-bottom: 72px;
+}

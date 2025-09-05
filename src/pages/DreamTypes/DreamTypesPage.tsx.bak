@@ -1,0 +1,26 @@
+// backup created by assistant at 2025-09-01
+// Original DreamTypesPage.tsx content
+import { motion } from 'framer-motion';
+import styles from './DreamTypesPage.module.scss';
+import { Card, CardContent, CardHeader, CardTitle } from '../../components/Card';
+
+export function DreamTypesPage() {
+  const dreamTypes = [ /* ... */ ];
+
+  return (
+    <div className="page-root">
+      <div className={styles.container}>
+        <div className={styles.hero}>
+          <h1 className={styles.title}>夢の種類</h1>
+          <p className={styles.lead}>
+            私たちが見る夢には様々な種類があります。それぞれが異なる意味と特徴を持っています。
+          </p>
+        </div>
+
+        <div className={styles.grid}>
+          {/* backup placeholder */}
+        </div>
+      </div>
+    </div>
+  );
+}

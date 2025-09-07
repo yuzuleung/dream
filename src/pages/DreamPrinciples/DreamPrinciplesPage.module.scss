@@ -49,21 +49,26 @@
 }
 .cardInner {
   display: flex;
-  gap: 1rem;
   align-items: center;
+  height: 100%;
 }
+
 .iconCol {
-  flex: 0 0 260px; /* match DreamMeanings base column for larger icons */
+  flex: 0 0 260px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .textCol {
   flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .iconImg {
-  /* base: slightly larger to match DreamMeanings */
+  /* base: slightly larger */
   width: 240px;
   height: 240px;
   max-width: 100%;
@@ -72,31 +77,44 @@
 }
 
 @media (max-width: 1023px) {
-  .iconImg { width: 160px; height: 160px; }
-  .iconCol { flex: 0 0 180px; }
+  .iconImg {
+    width: 220px;
+    height: 220px;
+  }
+  .iconCol {
+    flex: 0 0 180px;
+  }
 }
 
 @media (max-width: 767px) {
-  /* mobile: image left, text right, left-aligned (match DreamMeanings) */
+  /* mobile: image left, text right, left-aligned */
   .cardInner {
     flex-direction: row;
     align-items: center;
     text-align: left;
-    padding: 0.5rem 0;
+    padding: 0.5rem;
     gap: 0.75rem;
   }
-  .iconImg { width: 160px; height: 160px; margin: 0; padding-top: 0; }
-  .iconCol { flex: 0 0 160px; padding: 0; }
-  .textCol { padding: 0 0.5rem; display: flex; flex-direction: column; align-items: flex-start; }
-  .cardFull { padding: 0.5rem; }
-}
-.iconImg {
-  /* slightly larger image while keeping column width the same */
-  width: 184px;
-  height: 184px;
-  max-width: 100%; /* don't overflow the column */
-  object-fit: contain;
-  display: block;
+  /* tighten spacing for mobile */
+  .iconImg {
+    width: 220px;
+    height: 220px;
+    margin: 0;
+    padding-top: 0;
+  }
+  .iconCol {
+    flex: 0 0 160px;
+    padding: 0;
+  }
+  /* reduce horizontal padding so text sits closer to the icon */
+  .textCol {
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0.5rem;
+  }
+  .cardFull {
+    padding: 0.5rem;
+  }
 }
 .cardTitle {
   font-size: 1.25rem;

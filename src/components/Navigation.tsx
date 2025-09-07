@@ -6,8 +6,8 @@ export function Navigation() {
   const navItems = [
   { id: 'home', path: '/home', label: 'ホーム' },
     { id: 'dreamcore', path: '/dreamcore', label: '夢核' },
-    { id: 'types', path: '/dream-types', label: '夢の種類' },
     { id: 'meanings', path: '/dream-meanings', label: '夢の意味' },
+    { id: 'types', path: '/dream-types', label: '夢の種類' },
     { id: 'principles', path: '/dream-principles', label: '夢の原理' },
     { id: 'chat', path: '/chat', label: 'AI解析師' },
   ];

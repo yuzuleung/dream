@@ -83,14 +83,12 @@
   height: 240px;
   max-width: 100%;
   display: block;
-  margin: 0 auto 0.75rem auto;
   object-fit: contain;
 }
 
 .cardInner {
   display: flex;
   align-items: center;
-  gap: 1rem;
   height: 100%;
 }
 .iconCol {
@@ -108,7 +106,7 @@
 
 /* responsive sizes: medium and small screens */
 @media (max-width: 1023px) {
-  .iconImg { width: 160px; height: 160px; }
+  .iconImg { width: 220px; height: 220px; }
   .iconCol { flex: 0 0 180px; }
 }
 
@@ -122,7 +120,7 @@
     gap: 0.75rem;
   }
   /* tighten spacing for mobile (images doubled) */
-  .iconImg { width: 160px; height: 160px; margin: 0; padding-top: 0; }
+  .iconImg { width: 220px; height: 220px; margin: 0; padding-top: 0; }
   .iconCol { flex: 0 0 160px; padding: 0; }
   /* reduce horizontal padding so text sits closer to the icon and left align text */
   .textCol { align-items: flex-start; text-align: left; padding: 0 0.5rem; }
@@ -141,7 +139,7 @@
 }
 /* fixed-height card variant used for symbol cards */
 .cardFixed {
-  height: 320px;
+  height: 280px;
 }
 
 @media (max-width: 767px) {

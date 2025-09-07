@@ -21,7 +21,7 @@ export function DreamMeaningsPage() {
       symbol: '動物',
       meaning: '本能、直感、自然な欲求',
       details: '動物は私たちの本能的な部分や抑制された欲求を表現します。動物の種類により意味が変わります。',
-      icon: '/images/夢の意味/lion.png',
+      icon: '/images/夢の意味/animal.png',
     },
     {
       symbol: '家',

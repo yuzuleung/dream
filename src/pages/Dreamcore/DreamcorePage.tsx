@@ -2,8 +2,18 @@ import { motion } from 'framer-motion';
 import styles from './DreamcorePage.module.scss';
 import { Card, CardContent } from '../../components/Card';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
+import { useState } from 'react';
 
 export function DreamcorePage() {
+  const [flippedCards, setFlippedCards] = useState<{[key: string]: boolean}>({});
+
+  const handleCardFlip = (title: string) => {
+    setFlippedCards(prev => ({
+      ...prev,
+      [title]: !prev[title]
+    }));
+  };
+
   const dreamcoreImages = [
   // Images stored in public/images/dreamcore
   { file: 'classroom.png', title: '教室', description: '夢の中で感じるノスタルジックな教室の風景。記憶と感情が交差する瞬間を表現しています。' },
@@ -27,19 +37,24 @@ export function DreamcorePage() {
         <div className={styles.gridGallery}>
           {dreamcoreImages.map((image, index) => (
             <motion.div key={image.title} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.08 }}>
-              <Card className={styles.cardGroup}>
-                <CardContent className={`${styles.cardContentNoPad} ${styles.cardContent}`}>
+              <div 
+                className={`${styles.cardGroup} ${flippedCards[image.title] ? styles.isFlipped : ''}`} 
+                onClick={() => handleCardFlip(image.title)}
+              >
+                <div className={`${styles.cardContent} ${styles.flipFront}`}>
                   <div className={styles.imgWrapper}>
-                    {/* Use encodeURIComponent to safely handle filenames with spaces */}
                     <ImageWithFallback src={`/images/dreamcore/${encodeURIComponent(image.file)}`} alt={image.title} className={styles.imgCover} />
                     <div className={styles.gradientOverlay} />
                   </div>
                   <div className={styles.caption}>
                     <h3 className={styles.captionTitle}>{image.title}</h3>
-                    <p className={styles.captionText}>{image.description}</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+                <div className={`${styles.cardContent} ${styles.flipBack}`}>
+                  <h3 className={styles.captionTitle}>{image.title}</h3>
+                  <p className={styles.captionText}>{image.description}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

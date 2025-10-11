@@ -6,12 +6,18 @@ import { useState } from 'react';
 
 export function DreamcorePage() {
   const [flippedCards, setFlippedCards] = useState<{[key: string]: boolean}>({});
+  const [selectedCard, setSelectedCard] = useState<typeof dreamcoreImages[0] | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
 
-  const handleCardFlip = (title: string) => {
-    setFlippedCards(prev => ({
-      ...prev,
-      [title]: !prev[title]
-    }));
+  const handleCardClick = (image: typeof dreamcoreImages[0]) => {
+    if (window.innerWidth >= 1024) {
+      setSelectedCard(image);
+    } else {
+      setFlippedCards(prev => ({
+        ...prev,
+        [image.title]: !prev[image.title]
+      }));
+    }
   };
 
   const dreamcoreImages = [
@@ -94,7 +100,7 @@ export function DreamcorePage() {
             <motion.div key={image.title} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: index * 0.08 }}>
               <div 
                 className={`${styles.cardGroup} ${flippedCards[image.title] ? styles.isFlipped : ''}`} 
-                onClick={() => handleCardFlip(image.title)}
+                onClick={() => handleCardClick(image)}
               >
                 <div className={`${styles.cardContent} ${styles.flipFront}`}>
                   <div className={styles.imgWrapper}>
@@ -116,6 +122,48 @@ export function DreamcorePage() {
             </motion.div>
           ))}
         </div>
+
+        {/* 大屏幕模态框 */}
+        {selectedCard && (
+          <div 
+            className={`${styles.modal} ${styles.isVisible} ${isClosing ? styles.isClosing : ''}`} 
+            onClick={() => {
+              setIsClosing(true);
+              setTimeout(() => {
+                setSelectedCard(null);
+                setIsClosing(false);
+              }, 300);
+            }}
+          >
+            <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+              <div className={styles.modalImage}>
+                <ImageWithFallback 
+                  src={`/images/dreamcore/${encodeURIComponent(selectedCard.file)}`} 
+                  alt={selectedCard.title} 
+                />
+              </div>
+              <div className={styles.modalText}>
+                <h3 className={styles.captionTitle}>{selectedCard.title}</h3>
+                <p className={styles.captionText}>
+                  <span className={styles.sectionTitle}>夢の情景</span><br />
+                  {selectedCard.description}
+                </p>
+                <p className={styles.captionText}>
+                  <span className={styles.sectionTitle}>心境</span><br />
+                  {selectedCard.feeling}
+                </p>
+                <p className={styles.captionText}>
+                  <span className={styles.sectionTitle}>夢のタイプ</span>
+                  {selectedCard.type}
+                </p>
+                <p className={styles.captionText}>
+                  <span className={styles.sectionTitle}>カテゴリ</span>
+                  {selectedCard.category}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

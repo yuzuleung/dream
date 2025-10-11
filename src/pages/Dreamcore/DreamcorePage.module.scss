@@ -41,11 +41,18 @@
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0.5rem;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
   cursor: pointer;
-  aspect-ratio: 1/1.577;
   width: 100%;
+  aspect-ratio: 1/1.577;
+
+  @media (max-width: 1023px) {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    
+    &.isFlipped {
+      transform: rotateY(180deg);
+    }
+  }
 }
 
 .cardContent {
@@ -56,8 +63,149 @@
   height: 100%;
 }
 
-.isFlipped {
-  transform: rotateY(180deg);
+.modal {
+  @media (min-width: 1024px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 2rem;
+    pointer-events: none;
+    
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      opacity: 0;
+    }
+    
+    &.isVisible {
+      pointer-events: auto;
+      
+      &::before {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+      
+      &.isClosing::before {
+        animation: fadeOut 0.3s ease-out forwards;
+      }
+    }
+  }
+}
+
+.modalContent {
+  @media (min-width: 1024px) {
+    position: relative;
+    background: rgb(214 211 255 / 20%);;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 1000px;
+    z-index: 2;
+    margin: 216px auto 2rem;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    
+    .modal.isVisible & {
+      animation: slideUp 0.3s ease-out forwards;
+    }
+    
+    .modal.isVisible.isClosing & {
+      animation: slideDown 0.3s ease-out forwards;
+    }
+    
+    .modalImage {
+      flex: 1;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+        object-fit: cover;
+      }
+    }
+    
+    .modalText {
+      flex: 1;
+      color: rgba(255, 255, 255, 0.9);
+
+      h3 {
+        margin-bottom: 2.5rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+/* 展开的卡片样式 */
+.expandedCard {
+  display: none;
+  
+  @media (min-width: 1024px) {
+    &.isVisible {
+      display: block;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 1000px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 0.5rem;
+      z-index: 1000;
+      padding: 2rem;
+      
+      .expandedContent {
+        display: flex;
+        gap: 2rem;
+        
+        .expandedImage {
+          flex: 1;
+          max-width: 50%;
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+          }
+        }
+        
+        .expandedText {
+          flex: 1;
+          color: rgba(255, 255, 255, 0.9);
+          overflow-y: auto;
+          max-height: 80vh;
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  @media (min-width: 1024px) {
+    &.isVisible {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 999;
+    }
+  }
 }
 
 .flipFront,
@@ -128,6 +276,11 @@
   @media (max-width: 640px) {
     font-size: 1.2rem;
   }
+
+  @media (min-width: 1024px) {
+    font-size: 1.35rem;
+    margin: 2rem 0 0;
+  }
 }
 
 .sectionTitle {
@@ -165,4 +318,55 @@
   line-height: 1.7;
   display: grid;
   gap: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

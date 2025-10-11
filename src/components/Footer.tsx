@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className={styles.footer} role="contentinfo">
       <div className={styles.footerInner}>
         <div className={styles.brand}>夢の世界</div>
-        <div className={styles.muted}>© {year} yuzu, All rights reserved.</div>
+        <div className={styles.muted}>© {year} yong liang, All rights reserved.</div>
       </div>
     </footer>
   );

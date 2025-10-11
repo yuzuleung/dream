@@ -46,17 +46,17 @@ export function DreamMeaningsPage() {
   const emotionalMeanings = [
     {
       emotion: '喜び',
-      meaning: '現実での満足感や成功への予感',
+      meaning: '現実での満足感や成功の予感',
       advice: '現在の状況に感謝し、ポジティブな気持ちを大切にしましょう。',
     },
     {
       emotion: '恐怖',
-      meaning: '未知への不安や変化への抵抗',
+      meaning: '未知や変化への不安の表れ',
       advice: '恐怖の原因を特定し、小さな一歩から始めてみましょう。',
     },
     {
       emotion: '悲しみ',
-      meaning: '失ったものへの想いや現実への不満',
+      meaning: '失ったものへの思いや現実への不満',
       advice: '悲しみを受け入れ、癒しの時間を大切にしてください。',
     },
     {
@@ -71,7 +71,7 @@ export function DreamMeaningsPage() {
       <div className={styles.container}>
         <div className={styles.hero}>
           <h1 className={styles.title}>夢の意味</h1>
-          <p className={styles.lead}>夢は無意識からのメッセージです。象徴的な意味を理解することで、自分自身の深層心理を知ることができます。</p>
+          <p className={styles.lead}>夢は、無意識が私たちに送る小さなメッセージ。夢に現れる象徴を読み解くことで、普段は気づかない心の奥を知ることができます。</p>
         </div>
 
         <Tabs defaultValue="symbols" className="w-full">

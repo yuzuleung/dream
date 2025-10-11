@@ -21,7 +21,7 @@ export function Navigation() {
     >
       <div className={styles.navInner}>
         <NavLink to="/home" className={styles.navBrand}>
-          夢の世界
+          夢の世界<span className={styles.navSubBrand}> ー 夢核でたどる記憶と感情の地図</span>
         </NavLink>
         <div className={styles.navList}>
           {navItems.map((item) => (

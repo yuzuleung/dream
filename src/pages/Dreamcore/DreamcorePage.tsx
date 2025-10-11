@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styles from './DreamcorePage.module.scss';
-import { Card, CardContent } from '../../components/Card';
+import { Card } from '../../components/Card';
 import { ImageWithFallback } from '../../components/figma/ImageWithFallback';
 import { useState } from 'react';
 

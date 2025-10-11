@@ -63,7 +63,7 @@ export function DreamTypesPage() {
               <Card className={styles.cardWrapper}>
                 <div className={styles.cardInner}>
                   <div className={styles.iconCol}>
-                    <img className={styles.iconImg} src={`/images/${encodeURIComponent('夢の種類')}/${encodeURIComponent(type.icon)}`} alt={type.title} />
+                    <img className={styles.iconImg} src={`./images/${encodeURIComponent('dreamtypes')}/${encodeURIComponent(type.icon)}`} alt={type.title} />
                   </div>
                   <div className={styles.textCol}>
                     <CardHeader className={styles.cardHeaderCenter}>

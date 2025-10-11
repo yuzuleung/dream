@@ -12,8 +12,9 @@ import RealityPage from './pages/Reality/RealityPage';
 import Footer from './components/Footer';
 
 export default function App() {
+  const base = import.meta.env.DEV ? '/' : '/dream/';
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={base}>
       <RouteBackgroundWrapper />
     </BrowserRouter>
   );
@@ -33,7 +34,7 @@ function RouteBackgroundWrapper() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const bgSrc = isReality ? '/images/SunriseTorii.JPG' : isSmall ? '/images/Milkyway.JPG' : '/images/DisneyMoon.JPG';
+  const bgSrc = isReality ? './images/SunriseTorii.JPG' : isSmall ? './images/Milkyway.JPG' : './images/DisneyMoon.JPG';
 
   return (
     <div className="page-root">

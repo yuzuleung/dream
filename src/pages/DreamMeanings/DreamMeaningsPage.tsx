@@ -9,37 +9,37 @@ export function DreamMeaningsPage() {
       symbol: '水',
       meaning: '感情、潜在意識、浄化',
       details: '心の状態や感情の流れを表す。清い水は心の平安を、濁った水は混乱を示すことがあります。',
-      icon: '/images/夢の意味/water.png',
+      icon: './images/dreammeanings/water.png',
     },
     {
       symbol: '飛ぶ',
       meaning: '自由、解放、向上心',
       details: '飛ぶ夢は自由への憧れや現実からの解放願望を表します。高く飛ぶほど向上心の強さを示します。',
-      icon: '/images/夢の意味/fly.png',
+      icon: './images/dreammeanings/fly.png',
     },
     {
       symbol: '動物',
       meaning: '本能、直感、自然な欲求',
       details: '動物は私たちの本能的な部分や抑制された欲求を表現します。動物の種類により意味が変わります。',
-      icon: '/images/夢の意味/animal.png',
+      icon: './images/dreammeanings/animal.png',
     },
     {
       symbol: '家',
       meaning: 'アイデンティティ、安全、家族',
       details: '家は自己のアイデンティティや安全な場所を表します。家の状態は心の状態を反映します。',
-      icon: '/images/夢の意味/home.png',
+      icon: './images/dreammeanings/home.png',
     },
     {
       symbol: '落ちる',
       meaning: '不安、失敗への恐怖',
       details: '落ちる夢は、現実での不安や失敗への恐怖を表します。特に、何かを失うことへの恐れが強く表れることがあります。',
-      icon: '/images/夢の意味/fall.png',
+      icon: './images/dreammeanings/fall.png',
     },
     {
       symbol: '死',
       meaning: '変化、終了、新しい始まり',
       details: '死の夢は、人生の転換期や成長、何かの終わりや変化を象徴しています。新しい始まりのためには、古いものを手放す必要があることを示します。',
-      icon: '/images/夢の意味/dead.png',
+      icon: './images/dreammeanings/dead.png',
     },
   ];
 

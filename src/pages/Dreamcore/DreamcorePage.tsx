@@ -104,7 +104,7 @@ export function DreamcorePage() {
               >
                 <div className={`${styles.cardContent} ${styles.flipFront}`}>
                   <div className={styles.imgWrapper}>
-                    <ImageWithFallback src={`/images/dreamcore/${encodeURIComponent(image.file)}`} alt={image.title} className={styles.imgCover} />
+                    <ImageWithFallback src={`./images/dreamcore/${encodeURIComponent(image.file)}`} alt={image.title} className={styles.imgCover} />
                     <div className={styles.gradientOverlay} />
                   </div>
                   <div className={styles.caption}>
@@ -138,7 +138,7 @@ export function DreamcorePage() {
             <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
               <div className={styles.modalImage}>
                 <ImageWithFallback 
-                  src={`/images/dreamcore/${encodeURIComponent(selectedCard.file)}`} 
+                  src={`./images/dreamcore/${encodeURIComponent(selectedCard.file)}`} 
                   alt={selectedCard.title} 
                 />
               </div>
